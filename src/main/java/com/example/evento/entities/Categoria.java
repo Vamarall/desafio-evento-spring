@@ -1,9 +1,13 @@
 package com.example.evento.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +18,9 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String descricao;
+
+    @OneToMany(mappedBy = "categoria")
+    private Set<Atividades> atividades = new HashSet<>();
 
     public Categoria() {
     }
@@ -39,6 +46,8 @@ public class Categoria {
         this.descricao = descricao;
     }
 
+    
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -62,6 +71,10 @@ public class Categoria {
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    public Set<Atividades> getAtividades() {
+        return atividades;
     }
 
 }
