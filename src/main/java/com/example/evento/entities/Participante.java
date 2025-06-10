@@ -19,7 +19,7 @@ public class Participante {
     private String nome;
     private String email;
 
-    private Set<Atividades> atividades = new HashSet<>();
+
 
     public Participante() {
     }
@@ -81,9 +81,7 @@ public class Participante {
         return true;
     }
 
-    public Set<Atividades> getAtividades() {
-        return atividades;
-    }
+
 
     
 
