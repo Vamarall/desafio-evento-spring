@@ -20,7 +20,7 @@ public class Bloco {
     private Integer id;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant momento;
+    private Instant inicio;
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant fim;
@@ -34,9 +34,9 @@ public class Bloco {
 
     
 
-    public Bloco(Integer id, Instant momento, Instant fim) {
-        this.id = id;
-        this.momento = momento;
+    public Bloco( Instant inicio, Instant fim) {
+     
+        this.inicio = inicio;
         this.fim = fim;
     }
 
@@ -50,12 +50,12 @@ public class Bloco {
         this.id = id;
     }
 
-    public Instant getMomento() {
-        return momento;
+    public Instant getinicio() {
+        return inicio;
     }
 
-    public void setMomento(Instant momento) {
-        this.momento = momento;
+    public void setinicio(Instant inicio) {
+        this.inicio = inicio;
     }
 
     public Instant getFim() {

@@ -25,8 +25,7 @@ public class Categoria {
     public Categoria() {
     }
 
-    public Categoria(Integer id, String descricao) {
-        this.id = id;
+    public Categoria( String descricao) {
         this.descricao = descricao;
     }
 

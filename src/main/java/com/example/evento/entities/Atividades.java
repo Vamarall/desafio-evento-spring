@@ -36,14 +36,12 @@ public class Atividades {
 
     public Atividades() {
     }
-
-    public Atividades(Integer id, String nome, String descricao, Double preco) {
-        this.id = id;
+    public Atividades(String nome, String descricao, Double preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
     }
-
+    
     public Integer getId() {
         return id;
     }
