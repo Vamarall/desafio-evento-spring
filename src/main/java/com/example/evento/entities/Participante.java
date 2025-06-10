@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,7 +22,11 @@ public class Participante {
     private String nome;
     private String email;
 
-
+    @ManyToMany
+    @JoinTable(name = "tb_participante_atividades",
+    joinColumns = @JoinColumn(name = "participante_id"),
+    inverseJoinColumns = @JoinColumn(name = "atividades_id"))
+    private Set<Atividades> atividades = new HashSet<>();
 
     public Participante() {
     }
@@ -54,8 +61,6 @@ public class Participante {
         this.email = email;
     }
 
-    
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -81,8 +86,8 @@ public class Participante {
         return true;
     }
 
-
-
-    
+    public Set<Atividades> getAtividades() {
+        return atividades;
+    }
 
 }

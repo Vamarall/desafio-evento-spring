@@ -1,9 +1,13 @@
 package com.example.evento.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +20,9 @@ public class Atividades {
     private String nome;
     private String descricao;
     private Double preco;
+
+    @ManyToMany(mappedBy = "atividades")
+    private Set<Participante> participantes = new HashSet<>();
 
     public Atividades() {
     }
