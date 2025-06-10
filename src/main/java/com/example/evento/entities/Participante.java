@@ -1,5 +1,8 @@
 package com.example.evento.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +18,8 @@ public class Participante {
     private Integer id;
     private String nome;
     private String email;
+
+    private Set<Atividades> atividades = new HashSet<>();
 
     public Participante() {
     }
@@ -49,6 +54,8 @@ public class Participante {
         this.email = email;
     }
 
+    
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -72,6 +79,10 @@ public class Participante {
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    public Set<Atividades> getAtividades() {
+        return atividades;
     }
 
     
